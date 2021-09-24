@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Gestion_PDA.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="bdd_host" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sql.ribegroupe.com</Value>
+    </Setting>
+    <Setting Name="bdd_user" Type="System.String" Scope="User">
+      <Value Profile="(Default)">jdelannoy</Value>
+    </Setting>
+    <Setting Name="bdd_password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Mathis3028</Value>
+    </Setting>
+    <Setting Name="bdd_database" Type="System.String" Scope="User">
+      <Value Profile="(Default)">hubone_pda</Value>
+    </Setting>
+    <Setting Name="ftp_host" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ftp.ribegroupe.com</Value>
+    </Setting>
+    <Setting Name="ftp_user" Type="System.String" Scope="User">
+      <Value Profile="(Default)">depot</Value>
+    </Setting>
+    <Setting Name="ftp_password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">depot</Value>
+    </Setting>
+    <Setting Name="ftp_port" Type="System.String" Scope="User">
+      <Value Profile="(Default)">21</Value>
+    </Setting>
+    <Setting Name="version" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1.1.1.0</Value>
+    </Setting>
+    <Setting Name="code_secret" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3Ribegroupe21!</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
