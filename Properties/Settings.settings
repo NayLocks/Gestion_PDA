@@ -3,34 +3,43 @@
   <Profiles />
   <Settings>
     <Setting Name="bdd_host" Type="System.String" Scope="User">
-      <Value Profile="(Default)">sql.ribegroupe.com</Value>
+      <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="bdd_user" Type="System.String" Scope="User">
-      <Value Profile="(Default)">jdelannoy</Value>
+    <Setting Name="bdd_username" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="bdd_password" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Mathis3028</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="bdd_database" Type="System.String" Scope="User">
-      <Value Profile="(Default)">hubone_pda</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ftp_host" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ftp.ribegroupe.com</Value>
+      <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="ftp_user" Type="System.String" Scope="User">
-      <Value Profile="(Default)">depot</Value>
+    <Setting Name="ftp_username" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ftp_password" Type="System.String" Scope="User">
-      <Value Profile="(Default)">depot</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ftp_port" Type="System.String" Scope="User">
-      <Value Profile="(Default)">21</Value>
-    </Setting>
-    <Setting Name="version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1.1.1.0</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="code_secret" Type="System.String" Scope="User">
-      <Value Profile="(Default)">3Ribegroupe21!</Value>
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="bdd_port" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="u_username" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="u_mail" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="u_name" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

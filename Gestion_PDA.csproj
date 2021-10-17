@@ -28,9 +28,10 @@
     <ProductName>GESTION_PDA</ProductName>
     <PublisherName>RIBEGROUPE</PublisherName>
     <SuiteName>GESTION_PDA</SuiteName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <TrustUrlParameters>true</TrustUrlParameters>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.1.1.0</ApplicationVersion>
+    <ApplicationVersion>1.10.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -142,20 +143,56 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddSQL.cs" />
-    <Compile Include="Export.cs" />
-    <Compile Include="MajSQL.cs" />
-    <Compile Include="Initialisation.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="C_AddSQL.cs" />
+    <Compile Include="F_Connection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="F_Connection.Designer.cs">
+      <DependentUpon>F_Connection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Export.cs" />
+    <Compile Include="C_MajSQL.cs" />
+    <Compile Include="C_Initialisation.cs" />
+    <Compile Include="F_MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_MainForm.Designer.cs">
+      <DependentUpon>F_MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_Password.Designer.cs">
+      <DependentUpon>F_Password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_SettingsBDD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_SettingsBDD.Designer.cs">
+      <DependentUpon>F_SettingsBDD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_SettingsFTP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_SettingsFTP.Designer.cs">
+      <DependentUpon>F_SettingsFTP.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="F_Connection.resx">
+      <DependentUpon>F_Connection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_MainForm.resx">
+      <DependentUpon>F_MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_Password.resx">
+      <DependentUpon>F_Password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_SettingsBDD.resx">
+      <DependentUpon>F_SettingsBDD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_SettingsFTP.resx">
+      <DependentUpon>F_SettingsFTP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

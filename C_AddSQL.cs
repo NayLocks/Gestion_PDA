@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Gestion_PDA
 {
-    class AddSQL
+    class C_AddSQL
     {
 		public static void AddNoSIM(MySqlConnection cn, TextBox tb_s_no_phone, TextBox tb_s_no_sim, DataGridView dtgSIM)
 		{
@@ -29,7 +29,7 @@ namespace Gestion_PDA
 					{
 						while (Lire.Read())
 						{
-							dtgSIM.Rows.Add(Lire["s_id"].ToString(), Lire["s_no_phone"].ToString(), Lire["s_no_sim"].ToString());
+							dtgSIM.Rows.Add(Lire["id"].ToString(), Lire["s_no_phone"].ToString(), Lire["s_no_sim"].ToString());
 						}
 					};
 					cn.Close();
@@ -59,7 +59,7 @@ namespace Gestion_PDA
 					{
 						while (Lire.Read())
 						{
-							dtgCOMPANY.Rows.Add(Lire["c_id"].ToString(), Lire["c_name"].ToString());
+							dtgCOMPANY.Rows.Add(Lire["id"].ToString(), Lire["c_name"].ToString());
 						}
 					};
 					cn.Close();

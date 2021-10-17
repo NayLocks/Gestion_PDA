@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Gestion_PDA
 {
-    class MajSQL
+    class C_MajSQL
     {
 		public static void MajPDA(MySqlConnection cn, ComboBox cm_company, ComboBox cm_no_sim, TextBox tb_no_pda, TextBox tb_firstname, TextBox tb_lastname, TextBox tb_problem, TextBox tb_imei, DataGridView dtgPDA)
 		{
@@ -25,7 +25,7 @@ namespace Gestion_PDA
 					{
 						while (Lire.Read())
 						{
-							c_id = Convert.ToInt32(Lire["c_id"].ToString());
+							c_id = Convert.ToInt32(Lire["id"].ToString());
 						}
 					}
 					cn.Close();
@@ -35,14 +35,14 @@ namespace Gestion_PDA
 					{
 						while (Lire.Read())
 						{
-							s_id = Convert.ToInt32(Lire["s_id"].ToString());
+							s_id = Convert.ToInt32(Lire["id"].ToString());
 							tel = Lire["s_no_phone"].ToString();
 						}
 					}
 					cn.Close();
 					cn.Open();
 					MySqlCommand cmd = cn.CreateCommand();
-					cmd.CommandText = "UPDATE `pda` SET `p_company`=@company, `p_no_sim`=@sim,`p_no_pda`=@no_pda,`p_firstname`=@firstname,`p_lastname`=@lastname,`p_problem`=@problem WHERE `p_imei`=@imei";
+					cmd.CommandText = "UPDATE `pda` SET `p_company_id`=@company, `p_no_sim_id`=@sim,`p_no_pda`=@no_pda,`p_firstname`=@firstname,`p_lastname`=@lastname,`p_problem`=@problem WHERE `p_imei`=@imei";
 					cmd.Parameters.Add("@sim", MySqlDbType.VarChar).Value = s_id.ToString();
 					cmd.Parameters.Add("@no_pda", MySqlDbType.VarChar).Value = tb_no_pda.Text;
 					cmd.Parameters.Add("@firstname", MySqlDbType.VarChar).Value = tb_firstname.Text;
@@ -78,7 +78,7 @@ namespace Gestion_PDA
 				{
 					cn.Open();
 					MySqlCommand cmd = cn.CreateCommand();
-					cmd.CommandText = "UPDATE `sim` SET `s_no_phone`=@phone, `s_no_sim`=@sim WHERE `s_id`=@id";
+					cmd.CommandText = "UPDATE `sim` SET `s_no_phone`=@phone, `s_no_sim`=@sim WHERE `id`=@id";
 					cmd.Parameters.Add("@phone", MySqlDbType.VarChar).Value = tb_s_no_phone.Text;
 					cmd.Parameters.Add("@sim", MySqlDbType.VarChar).Value = tb_s_no_sim.Text;
 					cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = tb_s_id.Text;
@@ -105,7 +105,7 @@ namespace Gestion_PDA
 				{
 					cn.Open();
 					MySqlCommand cmd = cn.CreateCommand();
-					cmd.CommandText = "UPDATE `companies` SET `c_name`=@company WHERE `c_id`=@id";
+					cmd.CommandText = "UPDATE `companies` SET `c_name`=@company WHERE `id`=@id";
 					cmd.Parameters.Add("@company", MySqlDbType.VarChar).Value = tb_c_company.Text;
 					cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = tb_c_id.Text;
 					cmd.ExecuteNonQuery();

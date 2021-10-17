@@ -25,7 +25,7 @@ namespace Gestion_PDA.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sql.ribegroupe.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string bdd_host {
             get {
                 return ((string)(this["bdd_host"]));
@@ -37,19 +37,19 @@ namespace Gestion_PDA.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("jdelannoy")]
-        public string bdd_user {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string bdd_username {
             get {
-                return ((string)(this["bdd_user"]));
+                return ((string)(this["bdd_username"]));
             }
             set {
-                this["bdd_user"] = value;
+                this["bdd_username"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Mathis3028")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string bdd_password {
             get {
                 return ((string)(this["bdd_password"]));
@@ -61,7 +61,7 @@ namespace Gestion_PDA.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("hubone_pda")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string bdd_database {
             get {
                 return ((string)(this["bdd_database"]));
@@ -73,7 +73,7 @@ namespace Gestion_PDA.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ftp.ribegroupe.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ftp_host {
             get {
                 return ((string)(this["ftp_host"]));
@@ -85,19 +85,19 @@ namespace Gestion_PDA.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("depot")]
-        public string ftp_user {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ftp_username {
             get {
-                return ((string)(this["ftp_user"]));
+                return ((string)(this["ftp_username"]));
             }
             set {
-                this["ftp_user"] = value;
+                this["ftp_username"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("depot")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ftp_password {
             get {
                 return ((string)(this["ftp_password"]));
@@ -109,7 +109,7 @@ namespace Gestion_PDA.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("21")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ftp_port {
             get {
                 return ((string)(this["ftp_port"]));
@@ -121,25 +121,61 @@ namespace Gestion_PDA.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.1.1.0")]
-        public string version {
-            get {
-                return ((string)(this["version"]));
-            }
-            set {
-                this["version"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3Ribegroupe21!")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string code_secret {
             get {
                 return ((string)(this["code_secret"]));
             }
             set {
                 this["code_secret"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string bdd_port {
+            get {
+                return ((string)(this["bdd_port"]));
+            }
+            set {
+                this["bdd_port"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string u_username {
+            get {
+                return ((string)(this["u_username"]));
+            }
+            set {
+                this["u_username"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string u_mail {
+            get {
+                return ((string)(this["u_mail"]));
+            }
+            set {
+                this["u_mail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string u_name {
+            get {
+                return ((string)(this["u_name"]));
+            }
+            set {
+                this["u_name"] = value;
             }
         }
     }

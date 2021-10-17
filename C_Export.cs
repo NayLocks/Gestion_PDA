@@ -8,7 +8,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Gestion_PDA
 {
-    class Export
+    class C_Export
     {
 		public static void ExcelGenerate(DataGridView dtgPDA)
 		{

@@ -9,24 +9,25 @@ using System.Windows.Forms;
 
 namespace Gestion_PDA
 {
-    class Initialisation
+    class C_Initialisation
     {
-		public static void Reinitialize(MySqlConnection cn, DataGridView dtgPDA, DataGridView dtgBR, DataGridView dtgBL, DataGridView dtgSIM, DataGridView dtgCOMPANY, ComboBox cm_company, ComboBox cm_no_sim)
+		public static void Reinitialize(MySqlConnection cn, DataGridView dtgPDA, DataGridView dtgBR, DataGridView dtgBL, DataGridView dtgSIM, DataGridView dtgCOMPANY, ComboBox cm_company, ComboBox cm_no_sim, DataGridView dtgUSERS, DataGridView dtgFACT)
 		{
 			dtgPDA.Rows.Clear();
 			dtgSIM.Rows.Clear();
 			dtgCOMPANY.Rows.Clear();
 			dtgBR.Rows.Clear();
 			dtgBL.Rows.Clear();
+			dtgUSERS.Rows.Clear();
+			dtgFACT.Rows.Clear();
 			cm_company.Items.Clear();
 			cm_no_sim.Items.Clear();
-			Initialisation.Dtg_TAB(cn, dtgPDA, dtgSIM, dtgBR, dtgBL, dtgCOMPANY);
-			Initialisation.Choice(cn, cm_company, cm_no_sim);
-			Initialisation.ColorDtgPDA(dtgPDA);
+			C_Initialisation.Dtg_TAB(cn, dtgPDA, dtgSIM, dtgBR, dtgBL, dtgCOMPANY, dtgUSERS, dtgFACT);
+			C_Initialisation.Choice(cn, cm_company, cm_no_sim);
+			C_Initialisation.ColorDtgPDA(dtgPDA);
 		}
 
-		public static void Dtg_TAB
-			(MySqlConnection cn, DataGridView dtgPDA, DataGridView dtgSIM, DataGridView dtgBR, DataGridView dtgBL, DataGridView dtgCOMPANY)
+		public static void Dtg_TAB(MySqlConnection cn, DataGridView dtgPDA, DataGridView dtgSIM, DataGridView dtgBR, DataGridView dtgBL, DataGridView dtgCOMPANY, DataGridView dtgUSERS, DataGridView dtgFACT)
 		{
 			MySqlCommand cmdSQL;
 			try
@@ -34,12 +35,12 @@ namespace Gestion_PDA
 				if (cn.State == System.Data.ConnectionState.Closed)
 				{
 					cn.Open();
-					cmdSQL = new MySqlCommand("SELECT * FROM pda JOIN companies AS c ON c.c_id = pda.p_company JOIN sim AS s ON s.s_id = p_no_sim WHERE p_imei != 'TEST' ORDER BY c.c_name, p_no_pda", cn);
+					cmdSQL = new MySqlCommand("SELECT * FROM pda JOIN companies AS c ON c.id = pda.p_company_id JOIN sim AS s ON s.id = p_no_sim_id WHERE p_imei != 'TEST' ORDER BY c.c_name, p_no_pda", cn);
 					using (MySqlDataReader Lire = cmdSQL.ExecuteReader())
 					{
 						while (Lire.Read())
 						{
-							dtgPDA.Rows.Add(Lire["c_name"].ToString(), Lire["p_no_pda"].ToString(), Lire["p_imei"].ToString(), Lire["p_no_serial"].ToString(), Lire["s_no_phone"].ToString(), Lire["s_no_sim"].ToString(), Lire["p_firstname"].ToString(), Lire["p_lastname"].ToString(), Lire["p_type"].ToString(), Lire["p_problem"].ToString());
+							dtgPDA.Rows.Add(Lire["c_name"].ToString(), Lire["p_no_pda"].ToString(), Lire["p_imei"].ToString(), Lire["p_no_serial"].ToString(), Lire["s_no_phone"].ToString(), Lire["s_no_sim"].ToString(), Lire["p_firstname"].ToString(), Lire["p_lastname"].ToString(), Lire["p_type"].ToString(), Lire["p_problem"].ToString(), Lire["id"].ToString());
 						}
 					}
 
@@ -48,7 +49,7 @@ namespace Gestion_PDA
 					{
 						while (Lire.Read())
 						{
-							dtgCOMPANY.Rows.Add(Lire["c_id"].ToString(), Lire["c_name"].ToString());
+							dtgCOMPANY.Rows.Add(Lire["id"].ToString(), Lire["c_name"].ToString());
 						}
 					}
 
@@ -57,11 +58,12 @@ namespace Gestion_PDA
 					{
 						while (Lire.Read())
 						{
-							dtgSIM.Rows.Add(Lire["s_id"].ToString(), Lire["s_no_phone"].ToString(), Lire["s_no_sim"].ToString());
+							dtgSIM.Rows.Add(Lire["id"].ToString(), Lire["s_no_phone"].ToString(), Lire["s_no_sim"].ToString());
 						}
 					}
 
-					cmdSQL = new MySqlCommand("SELECT *, DATE_FORMAT(d_date, '%d/%m/%Y') AS date FROM documents AS d JOIN pda AS p ON p.p_id = d.d_pda WHERE d_type = 'BR'", cn);
+					
+					cmdSQL = new MySqlCommand("SELECT *, DATE_FORMAT(d_date, '%d/%m/%Y') AS date FROM documents AS d JOIN pda AS p ON p.id = d.d_no_pda_id WHERE d_type = 'BR' ORDER BY d_date DESC", cn);
 					using (MySqlDataReader Lire = cmdSQL.ExecuteReader())
 					{
 						while (Lire.Read())
@@ -70,12 +72,30 @@ namespace Gestion_PDA
 						}
 					}
 
-					cmdSQL = new MySqlCommand("SELECT *, DATE_FORMAT(d_date, '%d/%m/%Y') AS date FROM documents AS d JOIN pda AS p ON p.p_id = d.d_pda WHERE d_type = 'BL'", cn);
+					cmdSQL = new MySqlCommand("SELECT *, DATE_FORMAT(d_date, '%d/%m/%Y') AS date FROM documents AS d JOIN pda AS p ON p.id = d.d_no_pda_id WHERE d_type = 'BL' ORDER BY d_date DESC", cn);
 					using (MySqlDataReader Lire = cmdSQL.ExecuteReader())
 					{
 						while (Lire.Read())
 						{
 							dtgBL.Rows.Add(Lire["p_no_pda"].ToString(), Lire["p_no_serial"].ToString(), Lire["d_date"].ToString(), Lire["d_type"].ToString(), Lire["d_path"].ToString());
+						}
+					}
+
+					cmdSQL = new MySqlCommand("SELECT *, DATE_FORMAT(d_date, '%d/%m/%Y') AS date FROM documents AS d JOIN pda AS p ON p.id = d.d_no_pda_id WHERE d_type = 'FACT' ORDER BY d_date DESC", cn);
+					using (MySqlDataReader Lire = cmdSQL.ExecuteReader())
+					{
+						while (Lire.Read())
+						{
+							dtgFACT.Rows.Add(Lire["d_path_la_poste"].ToString(), Lire["d_montant"].ToString(), Lire["d_date"].ToString(), Lire["d_type"].ToString(), Lire["d_path"].ToString());
+						}
+					}
+
+					cmdSQL = new MySqlCommand("SELECT * FROM users ORDER BY u_username ASC", cn);
+					using (MySqlDataReader Lire = cmdSQL.ExecuteReader())
+					{
+						while (Lire.Read())
+						{
+							dtgUSERS.Rows.Add(Lire["u_username"].ToString(), Lire["u_name"].ToString(), Lire["u_mail"].ToString(), Lire["u_is_actived"].ToString());
 						}
 					}
 					cn.Close();
